@@ -5,7 +5,7 @@ USE ticket_sys_db;
 CREATE TABLE rol (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(255) NOT NULL
+    descripcion VARCHAR(255),
     active BOOLEAN DEFAULT TRUE
 );
 
