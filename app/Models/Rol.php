@@ -12,12 +12,13 @@ class Rol extends Model
     private $active;
 
     // Constructor
-    public function __construct($nombre, $descripcion, $active = true)
+    public function __construct($nombre = '', $descripcion = '', $active = true)
     {
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
         $this->active = $active;
     }
+    
 
     // Getters
     public function getId()

@@ -44,3 +44,6 @@ CREATE TABLE ticket (
     usuario_edicion_id INT,
     active BOOLEAN NOT NULL DEFAULT TRUE
 );
+
+INSERT INTO rol (nombre, descripcion) VALUES ('user', 'Usuario del sistema');
+INSERT INTO rol (nombre, descripcion) VALUES ('admin', 'Administrador del sistema');

@@ -4,10 +4,8 @@ require_once '../Models/Rol.php';
 
 // Controlador específico para 'Rol'
 class RolController extends Controller {
-    public function __construct() {
-        // $this->model = new Rol();
+    public function __construct()
+    {
+        $this->model = new Rol();
     }
-
-    // Métodos específicos para el controlador de Rol
-    // Ejemplo: public function createRol() { ... }
 }
