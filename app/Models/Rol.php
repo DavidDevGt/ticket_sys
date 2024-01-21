@@ -55,4 +55,30 @@ class Rol extends Model
     {
         $this->active = $active;
     }
+
+    // Métodos específicos para el modelo Rol
+    public function guardar()
+    {
+        $data = [
+            'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'active' => $this->active
+        ];
+        return $this->save($data);
+    }
+
+    public function actualizar($id)
+    {
+        $data = [
+            'nombre' => $this->nombre,
+            'descripcion' => $this->descripcion,
+            'active' => $this->active
+        ];
+        return $this->update($id, $data);
+    }
+
+    public function eliminar($id)
+    {
+        return $this->delete($id);
+    }
 }

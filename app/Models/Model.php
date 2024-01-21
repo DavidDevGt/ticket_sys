@@ -16,7 +16,7 @@ abstract class Model
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Otros métodos podrían ser: (save, update, delete)
+    // Otros métodos
 
     public function save($data)
     {

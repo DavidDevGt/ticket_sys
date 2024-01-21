@@ -120,4 +120,34 @@ class Usuario extends Model
     {
         $this->active = $active;
     }
+
+    // Métodos específicos para el modelo Usuario
+    public function guardar()
+    {
+        $data = [
+            'nombre' => $this->nombre,
+            'correo' => $this->correo,
+            'contrasena' => $this->contrasena,
+            'rol_id' => $this->rol_id,
+            'active' => $this->active
+        ];
+        return $this->save($data);
+    }
+
+    public function actualizar($id)
+    {
+        $data = [
+            'nombre' => $this->nombre,
+            'correo' => $this->correo,
+            'contrasena' => $this->contrasena,
+            'rol_id' => $this->rol_id,
+            'active' => $this->active
+        ];
+        return $this->update($id, $data);
+    }
+
+    public function eliminar($id)
+    {
+        return $this->delete($id);
+    }
 }
