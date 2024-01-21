@@ -19,7 +19,7 @@ class Usuario extends Model
     private $rol; // Objeto Rol
 
 
-    public function __construct($nombre, $correo, $contrasena, $rol_id, $active = true) {
+    public function __construct($nombre, $correo, $contrasena, $rol_id = 1, $active = true) {
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contrasena = $contrasena;
@@ -75,9 +75,8 @@ class Usuario extends Model
     }
 
     public function getRol() {
-        // Retorna la instancia de Rol asociada al usuario
-        return new Rol($this->rol_id, $this->nombre, $this->active);
-
+        $rolModel = new Rol();
+        return $rolModel->getById($this->rol_id);
     }
 
     // Setters
