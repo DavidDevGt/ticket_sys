@@ -102,4 +102,35 @@ class Ticket extends Model
     public function setActive($active) {
         $this->active = $active;
     }
+
+    // Métodos específicos para el modelo Ticket
+    public function guardar() {
+        $data = [
+            'titulo' => $this->titulo,
+            'descripcion' => $this->descripcion,
+            'cliente_id' => $this->cliente_id,
+            'estado' => $this->estado,
+            'fecha_creacion' => $this->fecha_creacion,
+            'usuario_creacion_id' => $this->usuario_creacion_id,
+            'active' => $this->active
+        ];
+        return $this->save($data);
+    }
+
+    public function actualizar($id) {
+        $data = [
+            'titulo' => $this->titulo,
+            'descripcion' => $this->descripcion,
+            'cliente_id' => $this->cliente_id,
+            'estado' => $this->estado,
+            'fecha_edicion' => $this->fecha_edicion,
+            'usuario_edicion_id' => $this->usuario_edicion_id,
+            'active' => $this->active
+        ];
+        return $this->update($id, $data);
+    }
+
+    public function eliminar($id) {
+        return $this->delete($id);
+    }
 }
