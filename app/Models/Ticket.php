@@ -16,7 +16,8 @@ class Ticket extends Model
     private $usuario_edicion_id;
     private $active;
 
-    public function __construct($titulo, $descripcion, $cliente_id, $estado = 1, $usuario_creacion_id, $active = true) {
+    public function __construct($titulo = '', $descripcion = '', $cliente_id = 0, $estado = 1, $usuario_creacion_id = 0, $active = true)
+    {
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->cliente_id = $cliente_id;
@@ -26,85 +27,105 @@ class Ticket extends Model
     }
 
     // Getters
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    public function getTitulo() {
+    public function getTitulo()
+    {
         return $this->titulo;
     }
 
-    public function getDescripcion() {
+    public function getDescripcion()
+    {
         return $this->descripcion;
     }
 
-    public function getClienteId() {
+    public function getClienteId()
+    {
         return $this->cliente_id;
     }
 
-    public function getEstado() {
+    public function getEstado()
+    {
         return $this->estado;
     }
 
-    public function getFechaCreacion() {
+    public function getFechaCreacion()
+    {
         return $this->fecha_creacion;
     }
 
-    public function getFechaEdicion() {
+    public function getFechaEdicion()
+    {
         return $this->fecha_edicion;
     }
 
-    public function getUsuarioCreacionId() {
+    public function getUsuarioCreacionId()
+    {
         return $this->usuario_creacion_id;
     }
 
-    public function getUsuarioEdicionId() {
+    public function getUsuarioEdicionId()
+    {
         return $this->usuario_edicion_id;
     }
 
-    public function isActive() {
+    public function isActive()
+    {
         return $this->active;
     }
 
     // Setters
-    public function setTitulo($titulo) {
+    public function setTitulo($titulo)
+    {
         $this->titulo = $titulo;
     }
 
-    public function setDescripcion($descripcion) {
+    public function setDescripcion($descripcion)
+    {
         $this->descripcion = $descripcion;
     }
 
-    public function setClienteId($cliente_id) {
+    public function setClienteId($cliente_id)
+    {
         $this->cliente_id = $cliente_id;
     }
 
-    public function setEstado($estado) {
+    public function setEstado($estado)
+    {
         $this->estado = $estado;
     }
 
-    public function setFechaCreacion($fecha_creacion) {
+    public function setFechaCreacion($fecha_creacion)
+    {
         $this->fecha_creacion = $fecha_creacion;
     }
 
-    public function setFechaEdicion($fecha_edicion) {
+    public function setFechaEdicion($fecha_edicion)
+    {
         $this->fecha_edicion = $fecha_edicion;
     }
 
-    public function setUsuarioCreacionId($usuario_creacion_id) {
+    public function setUsuarioCreacionId($usuario_creacion_id)
+    {
         $this->usuario_creacion_id = $usuario_creacion_id;
     }
 
-    public function setUsuarioEdicionId($usuario_edicion_id) {
+    public function setUsuarioEdicionId($usuario_edicion_id)
+    {
         $this->usuario_edicion_id = $usuario_edicion_id;
     }
 
-    public function setActive($active) {
+    public function setActive($active)
+    {
         $this->active = $active;
     }
 
     // Métodos específicos para el modelo Ticket
-    public function guardar() {
+    public function guardar()
+    {
         $data = [
             'titulo' => $this->titulo,
             'descripcion' => $this->descripcion,
@@ -117,7 +138,8 @@ class Ticket extends Model
         return $this->save($data);
     }
 
-    public function actualizar($id) {
+    public function actualizar($id)
+    {
         $data = [
             'titulo' => $this->titulo,
             'descripcion' => $this->descripcion,
@@ -130,7 +152,8 @@ class Ticket extends Model
         return $this->update($id, $data);
     }
 
-    public function eliminar($id) {
+    public function eliminar($id)
+    {
         return $this->delete($id);
     }
 }

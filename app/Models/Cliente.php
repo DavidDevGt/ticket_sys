@@ -14,7 +14,7 @@ class Cliente extends Model
     private $usuario_edicion_id;
     private $active;
 
-    public function __construct($nombre, $direccion = '', $telefono = '', $active = true)
+    public function __construct($nombre = '', $direccion = '', $telefono = '', $active = true)
     {
         $this->nombre = $nombre;
         $this->direccion = $direccion;
