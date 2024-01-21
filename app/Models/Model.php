@@ -16,6 +16,13 @@ abstract class Model
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getById($id)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE id = $id";
+        $result = $this->conn->query($query);
+        return $result->fetch_assoc();
+    }
+
     // Otros métodos
 
     public function save($data)
