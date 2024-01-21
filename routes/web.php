@@ -1,6 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 use AltoRouter;
+use Utils\ErrorHandler;
 
 $router = new AltoRouter();
 
@@ -23,10 +24,8 @@ $router->map('POST', '/submit', function() {
 
 // Manejar las rutas
 $match = $router->match();
-if($match && is_callable($match['target'])) {
+if ($match && is_callable($match['target'])) {
     call_user_func_array($match['target'], $match['params']); 
 } else {
-    // En caso de que no se encuentre la ruta
-    header("HTTP/1.0 404 Not Found");
-    require __DIR__ . '/../views/404.php';
+    ErrorHandler::notFound();
 }
