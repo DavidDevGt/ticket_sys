@@ -76,7 +76,8 @@ class Usuario extends Model
 
     public function getRol() {
         // Retorna la instancia de Rol asociada al usuario
-        return new Rol($this->nombre, $this->active);
+        return new Rol($this->rol_id, $this->nombre, $this->active);
+
     }
 
     // Setters
