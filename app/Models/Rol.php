@@ -1,12 +1,17 @@
 <?php
+require_once 'Model.php';
 
-class Rol
+// Clase Rol que extiende de Model
+class Rol extends Model
 {
+    protected $table = 'rol';
+
     private $id;
     private $nombre;
     private $descripcion;
     private $active;
 
+    // Constructor
     public function __construct($nombre, $descripcion, $active = true)
     {
         $this->nombre = $nombre;
