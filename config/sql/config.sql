@@ -40,7 +40,7 @@ CREATE TABLE ticket (
     estado INT NOT NULL DEFAULT 1,
     fecha_creacion DATETIME NOT NULL,
     fecha_edicion DATETIME,
-    usuario_creacion INT NOT NULL,
+    usuario_creacion_id INT NOT NULL,
     usuario_edicion_id INT,
     active BOOLEAN NOT NULL DEFAULT TRUE
 );
