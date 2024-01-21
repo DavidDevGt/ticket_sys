@@ -19,7 +19,7 @@ class Usuario extends Model
     private $rol; // Objeto Rol
 
 
-    public function __construct($nombre, $correo, $contrasena, $rol_id = 1, $active = true) {
+    public function __construct($nombre = '', $correo = '', $contrasena = '', $rol_id = 1, $active = true) {
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contrasena = $contrasena;
@@ -148,5 +148,12 @@ class Usuario extends Model
     public function eliminar($id)
     {
         return $this->delete($id);
+    }
+
+    public function findByMail($correo)
+    {
+        $query = "SELECT * FROM {$this->table} WHERE correo = '" . $this->conn->real_escape_string($correo) . "'";
+        $result = $this->conn->query($query);
+        return $result->fetch_object();
     }
 }
