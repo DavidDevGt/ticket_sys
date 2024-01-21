@@ -1,11 +1,18 @@
 <?php
 class Database {
-    private $host = 'localhost';
-    private $db_name = 'ticket_sys_db';
-    private $username = 'root';
-    private $password = '';
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
     private $conn;
 
+    public function __construct() {
+        $this->host = $_ENV['DB_HOST'];
+        $this->db_name = $_ENV['DB_NAME'];
+        $this->username = $_ENV['DB_USER'];
+        $this->password = $_ENV['DB_PASS'];
+    }
+    
     public function connect() {
         $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
 
