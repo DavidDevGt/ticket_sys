@@ -1,5 +1,6 @@
 <?php
 require_once 'Model.php';
+require_once 'Rol.php';
 
 class Usuario extends Model
 {
@@ -15,13 +16,16 @@ class Usuario extends Model
     private $usuario_edicion_id;
     private $active;
 
-    public function __construct($nombre, $correo, $contrasena, $rol_id, $active = true)
-    {
+    private $rol; // Objeto Rol
+
+
+    public function __construct($nombre, $correo, $contrasena, $rol_id, $active = true) {
         $this->nombre = $nombre;
         $this->correo = $correo;
         $this->contrasena = $contrasena;
         $this->rol_id = $rol_id;
         $this->active = $active;
+        $this->rol = $this->getRol(); // Obtiene el rol al crear el usuario
     }
 
     // Getters
@@ -68,6 +72,11 @@ class Usuario extends Model
     public function isActive()
     {
         return $this->active;
+    }
+
+    public function getRol() {
+        // Retorna la instancia de Rol asociada al usuario
+        return new Rol($this->nombre, $this->active);
     }
 
     // Setters
